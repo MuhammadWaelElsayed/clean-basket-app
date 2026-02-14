@@ -1,19 +1,60 @@
-/.phpunit.cache
-/node_modules
-/public/build
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Application cache & logs
+/storage/*.key
+/storage/app/*
+!/storage/app/public
+/storage/framework/*
+/storage/logs/*
+/bootstrap/cache/*
+
+# Vendor dependencies
+/vendor/
+
+# Node dependencies
+/node_modules/
+
+# Compiled assets
 /public/hot
 /public/storage
-/storage/*.key
-/vendor
-.env
-.env.backup
-.env.production
-.phpunit.result.cache
-Homestead.json
-Homestead.yaml
-auth.json
-npm-debug.log
-yarn-error.log
-/.fleet
+/public/build
+/public/mix-manifest.json
+
+# IDE & editor files
 /.idea
 /.vscode
+*.swp
+*.swo
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# PHPUnit & test output
+.phpunit.result.cache
+coverage/
+
+# Laravel Pint
+.pint.cache
+
+# Debug & profiling
+/debugbar
+/.phpstorm.meta.php
+
+# Temporary files
+*.tmp
+*.bak
+
+# SQLite databases
+*.sqlite
+*.sqlite3
+
+# Cache files
+*.cache
+
+# Composer
+composer.lock

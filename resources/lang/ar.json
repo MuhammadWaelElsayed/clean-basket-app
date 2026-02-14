@@ -1,0 +1,179 @@
+{
+    "Home":"الصفحة الرئيسية",    
+    "About Us": "معلومات عنا ",   
+    "FAQS": "استفسارات",
+    "Features": "استفسارات",
+    "Download": "تحميل",
+    "Contact Us": "تواصل معنا",
+    "Become a Partner": "كن شريكا",
+    "Terms & Conditions":"الشروط و الأحكام",
+    "Privacy Policy":"خصوصية الموقع",
+    "Terms and Conditions":"الشروط والأحكام وسياسة الخصوصية",
+    "All rights reserved":"جميع الحقوق محفوظة ",
+    "Support": "استفسارات",
+
+    "home_top_title": "حالة فعالة",
+    "Home_Title": "تبسيط سير العمل القانوني وإدارة الحالات المتقدمة!",
+    "home_desc": "متحمسة لأن تكون واحدة من أولى منصات خدمة المجتمع في العالم للمستشارين القانونيين الذين يمكنك الارتباط بهم من خلال الترافع عن قضيتك تحت أطراف أصابعك والاحتياجات الخاصة لخدماتهم، بدءًا من أي نزاع إلى أي قانون تسميه LPإن",
+
+
+    "about_top_title": "<span class='text-warning'>عن</span>المنصة القانونية",
+    "about_title": "تبسيط سير العمل القانوني وإدارة الحالات المتقدمة!",
+    "about_desc": "أن تعلن أنها منصة عالمية يمكنها ربطك بمحاميك المثالي في جميع أنحاء العالم ويمكن أن تساعدك في العثور على مستشارك القانوني للدفاع عن قضيتك والتواصل معهم من خلال العثور على مستشارك القانوني من خلال المنصة، في بالإضافة إلى مجموعة متنوعة من القوانين المحددة دوليًا بناءً على كل ولاية قضائية تتجاوز 500 قانون محدد، وستجد لك المحامي المثالي في دقائق تحت متناول يدك بدءًا من النزاعات الصغيرة وحتى النزاعات الكبيرة والتي ليس لها حد أقصى لعدد القضايا، فهي واسعة عالميًا ويمكن أن تجد المحامي المثالي لك محامي كلما وأينما ذهبت  LP يسعد شركة ",
+    "about_points": "<ul class='fs-5 text-gray-800'><li>Totam rem aperiam, eaque ipsa quae ab illo inventore</li> <li>Modi tempora incidunt ut labore et dolore magnam aliquam</li> <li>Vero eos et accusamus et iusto odio dignissimos ducimus</li>.",
+   
+    "download_title": "الابتكار المالي في تطبيق واحد",
+    "download_desc": "توفير معلومات المدخلات الزراعية وتوصيات الممارسات الزراعية الجيدة للمزارع",
+    
+    "contact_title": "!فقط قل مرحبا",
+    "contact_desc": "اسمحوا لنا أن نعرف المزيد عنك",
+
+    "contact_info": " معلومة <br> اتصال" ,
+    "info_desc": "Lorem Ipsum is simply dummy text of the printing type setting industry.",
+    "call_phone": " <a href='' class='text-gray-700'  > +971 25 685 2541</a>: اتصل بنا",
+    "open_timings": "نحن مفتوحون من الاثنين - الجمعة 0800: صباحًا - 05:00 مساءً",
+
+    "follow_us": "تابعنا",
+    "Help": "يساعد",
+    "Submit": "يُقدِّم",
+
+    "Full Name": "الاسم الكامل",
+    "Name": "الاسم ",
+    "Email": "البريد الالكترون",
+    "Phone Code": "رمز الهاتف",
+    "Phone": "رقم الهاتف",
+    "Your Message": "رسالتك",
+    "contact_thanks":"شكرا لاتصالك بنا! سوف نعود اليكم قريبا.",
+    
+
+    "Facebook": "رسالتك",
+    "Instagram": "انستغرام",
+    "You Tube": "موقع YouTube",
+
+    "Subscription Plans": "خطط الاشتراك",
+
+    "Individual":"شخص",
+    "Company":"شركة",
+    "Company Name":"اسم الشركة",
+    "Select Country":"اختر الدولة",
+    "Select Nationality":"اختر الجنسية",
+    "Select Languages":"اختر اللغات",
+    "Select Arbitrators":"اختر محكم",
+    "Select Jurisdictions":"اختر الولاية القضائية",
+    "Select Legal Consultant":"اختر محكم",
+    "Select Categories":"اختر الفئة",
+    "Select Sub Categories":"اختر الفئة الفرعية",
+    "All":"الجميع",
+    "About Yourself":"عن نفسك",
+    "Minimum Case Value":"ادنى قيمة للقضية",
+    "Cases Won":"لقضايا الرابحة",
+    "License":"رخصة",
+    "City":"مدينة",
+    "Certificate":"الشهادة",
+    "certificate_lisence":"الشهادة/الرخصة التجارية",
+    "Upload Picture":"تحميل الصورة",
+    "accept_privacy":"قبول كافة سياسة الخصوصية والشروط والأحكام",
+    
+    "Create Account":"إنشاء حساب",
+    "Legal Platform":"المنصة القانونية",
+    "Ok, got it": "حسنا، حصلت عليه",
+
+    "Search": "يبحث",
+    "No options found": "لم يتم العثور على خيارات",
+    "options selected": "تم تحديد الخيار",
+
+    "errors":{
+        "name":{
+            "required":"مطلوب اسم"
+        },
+        "message":{
+            "required":"الرسالة مطلوبة"
+        },
+        "email":{
+            "email":"يجب أن يكون البريد الإلكتروني بالتنسيق الصحيح مثل: example@mail.com",
+            "required":"البريد الالكتروني مطلوب",
+            "unique":"تم إستلام البريد الإلكتروني"
+        },
+        "phone":{
+            "required":"الهاتف مطلوب",
+            "unique":"الهاتف مأخوذ بالفعل",
+            "digits_between":"يجب أن يتراوح عدد أرقام الهاتف بين 9 و12 رقمًا"
+        },
+        "country":{
+            "required":"الدولة مطلوبة"
+        },
+        "min_case_value":{
+            "required":"مطلوب حالة الحد الأدنى"
+        },
+        "cases_won":{
+            "required":"مطلوب الحالات التي تم الفوز بها"
+        },
+        "certificate":{
+            "required":"الشهادة مطلوبة"
+        },
+        "license":{
+            "required":"الترخيص مطلوب"
+        },
+        "nationality":{
+            "required":"الجنسية مطلوبة"
+        },
+        "vendor_languages":{
+            "required":"مطلوب لغات المحامي"
+        },
+        "vendor_arbitrators":{
+            "required":"مطلوب محكمين محامين"
+        },
+        "vendor_jurisdictions":{
+            "required":"مطلوب محكمين محامين"
+        },
+        "vendor_categories":{
+            "required":"فئات المحامي مطلوبة"
+        },
+        "vendor_sub_categories":{
+            "required":"مطلوب فئات فرعية المحامي"
+        },
+        "about":{
+            "required":"مطلوب حول"
+        },
+        "privacy_policy":{
+            "required":"سياسة الخصوصية مطلوبة"
+        }
+    },
+    
+    "partner_registered":"تم إنشاء حسابك بنجاح. سيقوم المشرف بمراجعته والموافقة عليه قريبًا!",
+
+
+
+    "api":{
+        "unauthenticated":"Unauthenticated. You need to login Arabic",
+        "vendor_register": "لقد تم إنشاء حسابك بنجاح! يرجى التحقق من بريدك الإلكتروني لعملية المراجعة. سنقوم بتحديثك قريبا",
+        "login_wrong": "البريد الإلكتروني خاطئ أو غير مسجل",
+        "account_inactive":"تم حظر حسابك. اتصل بالمسؤول",
+        "account_approved":"لم تتم الموافقة على حسابك بعد. اتصل بالمسؤول",
+        "incorrect_password":"كلمة المرور الخاصة بك مخطئة.",
+
+        "otp_sent":"تم إرسال Otp إلى بريدك الإلكتروني. تحقق من صندوق البريد الخاص بك",
+        "otp_verified":"تم التحقق من OTP بنجاح!",
+        "otp_wronged":"OTP مخطئ أو منتهية الصلاحية",
+        "case_interested":"الحالة مهتمة بنجاح",
+        "case_uninterested":"الحالة غير مهتمة بنجاح!",
+        "interest_attachments":"تم إرسال المرفقات بنجاح!",
+        "logout_success":"لقد قمت بتسجيل الخروج بنجاح",
+        "profile_updated":"تم تحديث الملف الشخصي بنجاح",
+        "account_deleted":"تم حذف الحساب بنجاح!",
+        "phone_not_matched":"البريد الإلكتروني غير متطابق",
+        "clear_notifications":"تم مسح الإشعارات بنجاح!",
+
+        "phone_enabled": "تم تمكين الاتصال",
+        "phone_disabled": "الاتصال معطل",
+        "packages_desc":"مرحباً بكم في منصتنا القانونية الشاملة. نحن نقدم مجموعة متنوعة من حزم الاشتراك، توفر كل منها إمكانية الوصول إلى حالات ذات قيم مطالبات مختلفة. يمكن للمحامين اختيار الحزمة التي تناسب متطلباتهم.  ولذلك نقدم الباقات التالية:",
+        "order_vendor": "نعتذر منك منطقتك غير مخدومة حاليا",
+        "address_already": "تم حفظ عنوانك بالفعل!",
+        "otp_failed":"حدثت مشكلة في خدمة التسليم لمرة واحدة (OTP)، حاول مرة أخرى.",
+        "processing_error":"لتجهيز الطلب يجب أن يكون وصل",
+        "basket_already":" رقم السلة مستخدم مسبقاً",
+        "invalid_promo":"الرمز الترويجي غير صالح"
+
+
+    }
+}

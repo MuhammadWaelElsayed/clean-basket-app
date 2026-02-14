@@ -1,0 +1,175 @@
+{{-- @extends('components.layouts.admin-dashboard') --}}
+
+@section('onboardActive','active')
+@section('appShow','show')
+
+{{-- @section('main') --}}
+
+<div class="app-main flex-column flex-row-fluid" id="kt_app_main" data-select2-id="select2-data-kt_app_main">
+    <!--begin::Content wrapper-->
+    <div class="d-flex flex-column flex-column-fluid" data-select2-id="select2-data-129-xgx3">
+        <!--begin::Toolbar-->
+        <div id="kt_app_toolbar" class="app-toolbar py-3 py-lg-6">
+            <!--begin::Toolbar container-->
+            <div id="kt_app_toolbar_container" class="app-container container-xxl d-flex flex-stack">
+                <!--begin::Page title-->
+                <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
+                    <!--begin::Title-->
+                    <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">Add New Onnboard</h1>
+                    <!--end::Title-->
+                    <!--begin::Breadcrumb-->
+                    <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
+                        <!--begin::Banner-->
+                        <li class="breadcrumb-item text-muted">
+                            <a href="{{ url('admin/dashboard') }}" class="text-muted text-hover-primary">Dashboard</a>
+                        </li>
+                        <!--end::Banner-->
+                        <!--begin::Banner-->
+                        <li class="breadcrumb-item">
+                            <span class="bullet bg-gray-400 w-5px h-2px"></span>
+                        </li>
+                        <!--end::Banner-->
+                        <!--begin::Banner-->
+                        <li class="breadcrumb-item text-muted">
+                            <a href="{{ url('admin/banners') }}" class="text-muted text-hover-primary">Onboard Data</a>
+                        </li>
+                        <!--end::Banner-->
+                    </ul>
+                    <!--end::Breadcrumb-->
+                </div>
+                <!--end::Page title-->
+              
+            </div>
+            <!--end::Toolbar container-->
+        </div>
+        <!--end::Toolbar-->
+        <!--begin::Content-->
+        <div id="kt_app_content" class="app-content flex-column-fluid" data-select2-id="select2-data-kt_app_content">
+            <!--begin::Content container-->
+            <div id="kt_app_content_container" class="app-container container-xxl" data-select2-id="select2-data-kt_app_content_container">
+                <!--begin::Card-->
+                <div class="card">
+                 
+                    <!--end::Card header-->
+                    <!--begin::Card body-->
+                    <div class="card-body pt-0">
+                        <!--begin::Form-->  
+                        <form id="kt_modal_new_target_form" enctype="multipart/form-data"  method="POST" class="form fv-plugins-bootstrap5 fv-plugins-framework" wire:submit.prevent="store()">
+                            @csrf
+							<!--begin::Input group-->
+							<div class="row g-9 my-3">
+                               
+								<!--begin::Col-->
+                                <div class="col-md-6 fv-row fv-plugins-icon-container">
+                                    <label for="">Media Type</label>
+                                    <select wire:model.live="type" class="form-control" >
+                                        <option value="banner">Banner</option>
+                                        <option value="video">Video</option>
+                                    </select>
+                                </div>
+
+                                @if ($type=="banner")
+                                    <div class="col-md-6 fv-row fv-plugins-icon-container">
+                                        <!--begin::Label-->
+                                        <label class="fs-6 fw-semibold mb-3">
+                                            <span>Upload Banner Image</span>
+                                            <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" aria-label="Allowed file types: png, jpg, jpeg." data-kt-initialized="1"></i>
+                                        </label>
+                                        <div class="mt-1"> 
+                                            <div class="image-input image-input-outline image-input-placeholder image-input-empty image-input-empty" data-kt-image-input="true">
+                                                <!--begin::Preview existing avatar-->
+                                            
+                                                <div class="image-input-wrapper w-100px h-100px" style="background-image: url('{{($media!=null)?$media->temporaryUrl():asset('uploads/blank2.jpg')}} ')"></div>
+                                            
+                                                <label class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="change" data-bs-toggle="tooltip" aria-label="Change avatar" data-kt-initialized="1">
+                                                    <i class="bi bi-upload fs-7"></i>
+                                                    <input type="file" wire:model="media" name="image" accept=".png, .jpg, .jpeg">
+                                                    {{-- <input type="hidden" name="avatar_remove"> --}}
+                                                </label>
+                                                <span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="cancel" data-bs-toggle="tooltip" aria-label="Cancel avatar" data-kt-initialized="1">
+                                                    <i class="bi bi-x fs-2"></i>
+                                                </span>
+                                                <!--end::Cancel-->
+                                                <!--begin::Remove-->
+                                                <span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="remove" data-bs-toggle="tooltip" aria-label="Remove avatar" data-kt-initialized="1">
+                                                    <i class="bi bi-x fs-2"></i>
+                                                </span>
+                                                <!--end::Remove-->
+                                            </div>
+                                            <!--end::Image input-->
+                                        </div>
+                                        @error('media') <span class="text-danger">{{$message}}</span> @enderror
+
+                                    </div>
+                                @else
+                                    <div class="col-md-6 fv-row fv-plugins-icon-container">
+                                        <!--begin::Label-->
+                                        <label class="fs-6 fw-semibold mb-3">
+                                            <span>Upload Video (Max: 10mb)</span>
+                                            <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" aria-label="Allowed file types: png, jpg, jpeg." data-kt-initialized="1"></i>
+                                        </label>
+                                        <div class="mt-1"> 
+                                            <div class="image-input image-input-outline image-input-placeholder image-input-empty image-input-empty" data-kt-image-input="true">
+                                                <!--begin::Preview existing avatar-->
+                                            
+                                                <div class="image-input-wrapper w-100px h-100px text-center" >
+                                                   <p class="text-center">
+                                                    <i class=" fas fa-video m-2" style="font-size: 30px"></i> <br>
+                                                        {!! ($media!=null)?$media->getClientOriginalName():'<a href="'.$mediaUrl.'" target="_blank">Old Video</a> '; !!}
+                                                    </p> 
+                                                </div>
+                                            
+                                                <label class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="change" data-bs-toggle="tooltip" aria-label="Change avatar" data-kt-initialized="1">
+                                                    <i class="bi bi-upload fs-7"></i>
+                                                    <input type="file" wire:model="media" name="media" accept=".mp4, .avi, .mov, .webm">
+                                                    {{-- <input type="hidden" name="avatar_remove"> --}}
+                                                </label>
+                                                <span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="cancel" data-bs-toggle="tooltip" aria-label="Cancel avatar" data-kt-initialized="1">
+                                                    <i class="bi bi-x fs-2"></i>
+                                                </span>
+                                            </div>
+                                            <!--end::Image input-->
+                                        </div>
+                                        @error('media') <span class="text-danger">{{$message}}</span> @enderror
+
+                                    </div>
+                                @endif
+                                
+          
+                            </div>
+						
+                         <div class="row g-9 my-3">
+                           
+							<!--begin::Actions-->
+							<div class=""> 
+								<a href="{{ url('admin/onboard') }}"  id="kt_modal_new_target_cancel" class="btn btn-light me-3">Back</a>
+								<button type="submit" id="kt_modal_new_target_submit" class="btn btn-base" wire:loading.attr="disabled">
+									<span class="indicator-label"  wire:loading.remove >Submit</span>
+									<span class="indicator-progress"  wire:loading >Please wait...
+									<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
+								</button>
+							</div>
+							<!--end::Actions-->
+						</form>
+                        <!--end::Form-->
+                    </div>
+                    <!--end::Card body-->
+                </div>
+                <!--end::Card-->
+
+               
+            </div>
+        </div>
+    </div>
+
+</div>
+
+{{-- @endsection --}}
+@section('scripts')
+
+    <!--end::Vendors Javascript-->
+    <!--begin::Custom Javascript(used for this page only)-->
+    <script src="{{ asset('js/widgets.bundle.js') }}"></script>
+    <script src="{{ asset('js/custom/widgets.js') }}"></script>
+
+@endsection

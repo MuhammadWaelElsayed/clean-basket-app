@@ -1,0 +1,70 @@
+{
+    "Home": "",
+    "About us": "",
+    "Download": "",
+    "Contact Us": "",
+    "Become a Partner": "",
+    "Certificate":"Certificate",
+    "certificate_lisence":"Certificate/Trade licence",
+
+    
+    "home_top_title": "EFFICIENT CASE",
+    "Home_Title": "Simplify legal workflow advanced case management!",
+    "home_desc": "LP is passionate to be one of the worlds first community service platform of legal consultants that you can link with through pleading your case under your finger tips and special needs to their services, from any dispute to any law you name it.",
+
+    "about_top_title": "<span class='text-warning'>ABOUT</span> LEGAL PLATFORM",
+    "about_title": "Simplify legal workflow advanced case management!",
+    "about_desc": "LP is happy to announce that it is a world wide platform that can link you with your prefect attorney around the world and can help you find your legal consultant to plead your case to and communicate with them by finding your legal consultant through the platform, in addition with a variety of specific laws internationally based on every jurisdiction going over 500 specific laws and it finds you the perfect attorney in minutes under your finger tips from small disputes to large and no maximum value number of cases it’s internationally wide and can find your perfect attorney whenever and wherever you go.",
+    "about_points": "<ul class='fs-5 text-gray-800'><li>Totam rem aperiam, eaque ipsa quae ab illo inventore</li> <li>Modi tempora incidunt ut labore et dolore magnam aliquam</li> <li>Vero eos et accusamus et iusto odio dignissimos ducimus</li>.",
+   
+    "download_title": "Financial Innovation In One Applicaation",
+    "download_desc": "Provide agricultural input information and good agricultural practice recommendations to farms.",
+    
+    
+    "contact_title": "Just say hello!",
+    "contact_desc": "Let us know more about you!",
+
+    "contact_info": "Contact <br> Information",
+    "info_desc": "Lorem Ipsum is simply dummy text of the printing type setting industry.",
+    "call_phone": "Call Us: <a href='' class='text-gray-700'> +971 25 685 2541</a>",
+    "open_timings": "We are open from Monday - Friday 0800: am - 05:00 pm",
+
+    "follow_us": "Follow Us",
+
+    "accept_privacy":"Accept all <a href='/privacy-policy'> Privacy policy</a> & <a href='/terms-conditions'>Terms & conditions</a>",
+    "contact_thanks":"Thank your for contacting us! we will reach back to you soon.",
+
+    "partner_registered":"Your Account created successfully. Admin will review and approve it soon!",
+
+
+
+    "api":{
+        "unauthenticated":"Unauthenticated. You need to login",
+        "vendor_register":"Your account has been successfully created! Please check your email for the review process. We will update you soon.",
+        "login_wrong":"Phone is wrong or not registered",
+        "account_inactive":"Your Account is blocked. Contact to admin",
+        "account_approved":"Your account is not approved yet. Contact to admin",
+        "incorrect_password":"Your Password is wronged.",
+        "otp_sent":"Otp is send to your phone. Check your phone",
+        "otp_verified":"OTP is verified successfully!",
+        "otp_wronged":"OTP is wronged or expired",
+        "case_interested":"Case is interested successfully",
+        "case_uninterested":"Case is uninterested successfully!",
+        "interest_attachments":"Attachements is submitted successfully!",
+        "logout_success":"You Logout successfully",
+        "profile_updated":"Profile Updated successfully",
+        "account_deleted":"Account is deleted successfully!",
+        "phone_not_matched":"Phone is not matched",
+        "clear_notifications":"Notifications cleared successfully!",
+        "phone_enabled": "Call Enabled",
+        "phone_disabled": "Call Disabled",
+        "packages_desc": "Welcome to our comprehensive legal platform. We offer a variety of subscription packages, each providing access to cases of varying claim values. Vendors can choose the package that best suits their requirements. Therefore, we offer the following packages:",
+        "order_vendor": "Currently we don’t serve your area",
+        "address_already": "your address already saved!",
+        "otp_failed":"Problem with OTP delivery service, try again.",
+        "processing_error":"For Processing order it should be arrived",
+        "basket_already":"Entered basket number already in use",
+        "invalid_promo":"Invalid Promo Code"
+    
+    }
+}

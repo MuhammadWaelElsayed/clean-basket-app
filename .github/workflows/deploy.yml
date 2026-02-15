@@ -11,6 +11,11 @@ jobs:
     steps:
       - name: Trigger deploy listener
         run: |
-          curl -sS -X POST \
+          http_code=$(curl -sS -o /tmp/deploy_response.txt -w "%{http_code}" -X POST \
             -H "X-Deploy-Token: ${{ secrets.DEPLOY_TOKEN }}" \
-            "${{ secrets.DEPLOY_URL }}"
+            "${{ secrets.DEPLOY_URL }}")
+          if [ "$http_code" -ne 200 ]; then
+            echo "Deploy failed with status $http_code"
+            cat /tmp/deploy_response.txt
+            exit 1
+          fi

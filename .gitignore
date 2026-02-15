@@ -1,5 +1,4 @@
 # Environment files
-# Test Docker CI/CD
 .env
 .env.*
 !.env.example

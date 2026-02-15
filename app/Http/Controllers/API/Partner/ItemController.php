@@ -316,11 +316,11 @@ class ItemController extends Controller
 
             $vendor = $this->getAreaVendor($lat, $lon);
 
-            if(!$vendor){
+            if (!$vendor) {
                 return response()->json([
-                    'status'  => false,
+                    'status' => false,
                     "message" => __('api')['order_vendor'],
-                    'data'    => [],
+                    'data' => [],
                 ], 400);
             }
 
@@ -336,17 +336,25 @@ class ItemController extends Controller
                 'app_lang' => 'en',
             ]);
 
-            if($userToken = $request->header('X-User-Token')){
+            if ($userToken = $request->header('X-User-Token')) {
                 $meta = $user->meta;
                 $meta['user_token'] = $userToken;
                 $user->update(['meta' => $meta]);
             }
 
+            $address = UserAddress::firstOrCreate(['user_id', $user->id], [
+                'user_id' => $user->id,
+                'lat' => $lat,
+                'lng' => $lon,
+                'vendor_id' => $vendor->id,
+                'appartment' => $request->address,
+            ]);
+
             $order = Order::create([
                 'order_code' => 'CB' . ((Order::latest()->first()->id ?? 0) + 1),
                 'type' => 'partner',
+                'address_id' => $address->id,
                 'user_id' => $user->id,
-                'address_id' => null,
                 'source_name' => $source['name'],
                 'source_secret' => $source['secret'],
                 'address' => $request->address,
@@ -390,13 +398,13 @@ class ItemController extends Controller
 
                 $addonsTotal = 0;
 
-                if (! empty($itemData['add_on_ids'])) {
+                if (!empty($itemData['add_on_ids'])) {
                     $addOns = AddOn::whereIn('id', $itemData['add_on_ids'])->get();
                     foreach ($addOns as $addOn) {
-                        $addonsTotal += (float) $addOn->price;
+                        $addonsTotal += (float)$addOn->price;
                     }
 
-                    $quantity = isset($itemData['quantity']) ? (int) $itemData['quantity'] : 1;
+                    $quantity = isset($itemData['quantity']) ? (int)$itemData['quantity'] : 1;
                     $addonsTotal *= $quantity;
                 }
 
@@ -410,7 +418,7 @@ class ItemController extends Controller
                     'total_price' => $totalPrice,
                 ]);
 
-                if (! empty($itemData['add_on_ids'])) {
+                if (!empty($itemData['add_on_ids'])) {
                     foreach ($itemData['add_on_ids'] as $addOnId) {
                         $addOn = AddOn::find($addOnId);
                         if (!$addOn) {
@@ -469,11 +477,11 @@ class ItemController extends Controller
                         ]);
 
                         $userPromoCode->update([
-                           'is_used' => true,
-                           'count' => ($userPromoCode->count ?? 0) + 1
-                       ]);
-                   }
-                }else{
+                            'is_used' => true,
+                            'count' => ($userPromoCode->count ?? 0) + 1
+                        ]);
+                    }
+                } else {
                     return response()->json([
                         'status' => false,
                         'message' => 'Invalid promo code.',
@@ -567,7 +575,7 @@ class ItemController extends Controller
     {
         $promoCode = PromoCode::where('code', $code)->first();
 
-        if(!$promoCode){
+        if (!$promoCode) {
             return null;
         }
         // Tax rate from environment

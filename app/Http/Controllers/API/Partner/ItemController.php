@@ -342,7 +342,7 @@ class ItemController extends Controller
                 $user->update(['meta' => $meta]);
             }
 
-            $address = UserAddress::firstOrCreate(['user_id', $user->id], [
+            $address = UserAddress::firstOrCreate(['user_id' => $user->id], [
                 'user_id' => $user->id,
                 'lat' => $lat,
                 'lng' => $lon,

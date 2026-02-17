@@ -26,9 +26,7 @@ class SendPartnerWebhook implements ShouldQueue
     public function __construct(
         public PartnerWebhook $webhook,
         public array          $payload
-    )
-    {
-    }
+    ) {}
 
     /**
      * Execute the job.
@@ -38,33 +36,31 @@ class SendPartnerWebhook implements ShouldQueue
         $startTime = microtime(true);
 
         try {
-            // Generate signature for security
-            $signature = $this->generateSignature($this->payload, $this->webhook->source_secret);
+            $response = $this->sendWebhook();
 
-            // Send webhook based on method
-            $response = $this->sendWebhook($signature);
+            $duration = round((microtime(true) - $startTime) * 1000);
 
-            $duration = round((microtime(true) - $startTime) * 1000); // in milliseconds
+            // Check response body for success (endpoint always returns HTTP 200)
+            $body = json_decode($response->body(), true);
+            $isSuccess = $response->successful() && ($body['success'] ?? true);
 
-            // Log successful webhook
             $this->logWebhook(
-                status: 'success',
+                status: $isSuccess ? 'success' : 'failed',
                 statusCode: $response->status(),
                 responseBody: $response->body(),
-                duration: $duration
+                duration: $duration,
+                errorMessage: $isSuccess ? null : ($body['message'] ?? 'Partner reported failure in response body')
             );
 
-            Log::info('Partner webhook sent successfully', [
+            Log::info('Partner webhook sent', [
                 'webhook_id' => $this->webhook->id,
                 'source_name' => $this->webhook->source_name,
-                'event' => $this->payload['event'] ?? null,
                 'status_code' => $response->status(),
+                'body_success' => $isSuccess,
             ]);
-
         } catch (\Exception $e) {
             $duration = round((microtime(true) - $startTime) * 1000);
 
-            // Log failed webhook
             $this->logWebhook(
                 status: 'failed',
                 statusCode: null,
@@ -80,7 +76,6 @@ class SendPartnerWebhook implements ShouldQueue
                 'attempt' => $this->attempts(),
             ]);
 
-            // Re-throw to trigger retry
             throw $e;
         }
     }
@@ -88,13 +83,13 @@ class SendPartnerWebhook implements ShouldQueue
     /**
      * Send the webhook request.
      */
-    private function sendWebhook(string $signature)
+    private function sendWebhook()
     {
+        $apiKey = config("partner_webhooks.api_keys.{$this->webhook->source_name}");
+
         $headers = [
             'Content-Type' => 'application/json',
-            'X-Webhook-Signature' => $signature,
-            'X-Webhook-Source' => $this->webhook->source_name,
-            'User-Agent' => 'PartnerWebhook/1.0',
+            'X-API-Key' => $apiKey,
         ];
 
         if ($this->webhook->method === 'POST') {
@@ -103,19 +98,9 @@ class SendPartnerWebhook implements ShouldQueue
                 ->post($this->webhook->url, $this->payload);
         }
 
-        // For GET requests, send payload as query parameters
         return Http::timeout($this->timeout)
             ->withHeaders($headers)
             ->get($this->webhook->url, $this->payload);
-    }
-
-    /**
-     * Generate HMAC signature for webhook verification.
-     */
-    private function generateSignature(array $payload, string $secret): string
-    {
-        $payloadJson = json_encode($payload);
-        return hash_hmac('sha256', $payloadJson, $secret);
     }
 
     /**
@@ -127,11 +112,10 @@ class SendPartnerWebhook implements ShouldQueue
         ?string $responseBody,
         int     $duration,
         ?string $errorMessage = null
-    ): void
-    {
+    ): void {
         WebhookLog::create([
             'partner_webhook_id' => $this->webhook->id,
-            'event' => $this->payload['event'] ?? null,
+            'event' => 'status_update',
             'payload' => $this->payload,
             'status' => $status,
             'status_code' => $statusCode,
@@ -140,7 +124,6 @@ class SendPartnerWebhook implements ShouldQueue
             'error_message' => $errorMessage,
             'attempt' => $this->attempts(),
         ]);
-
     }
 
     /**
@@ -151,7 +134,6 @@ class SendPartnerWebhook implements ShouldQueue
         Log::error('Partner webhook permanently failed', [
             'webhook_id' => $this->webhook->id,
             'source_name' => $this->webhook->source_name,
-            'event' => $this->payload['event'] ?? null,
             'error' => $exception->getMessage(),
             'attempts' => $this->attempts(),
         ]);
@@ -160,7 +142,7 @@ class SendPartnerWebhook implements ShouldQueue
         if (class_exists(WebhookLog::class)) {
             WebhookLog::create([
                 'partner_webhook_id' => $this->webhook->id,
-                'event' => $this->payload['event'] ?? null,
+                'event' => 'status_update',
                 'payload' => $this->payload,
                 'status' => 'permanently_failed',
                 'error_message' => $exception->getMessage(),
